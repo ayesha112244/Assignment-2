@@ -32,6 +32,7 @@ This section explains **exactly how to install and run the project**, step by st
 ```bash
 git clone <repository-url>
 cd Assignment-2
+```
 
 ### 2\. Install PHP Dependencies
 
