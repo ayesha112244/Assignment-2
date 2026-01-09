@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Itinerary;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ItineraryController extends Controller
 {
@@ -44,10 +45,19 @@ class ItineraryController extends Controller
         ]);
 
         // Insert data into database
-        Itinerary::create($request->all());
+        Itinerary::create([
+            'trip_name' => $request->trip_name,
+            'country' => $request->country,
+            'destinations' => $request->destinations,
+            'overview' => $request->overview,
+            'suggested_dates' => $request->suggested_dates,
+            'difficulty_level' => $request->difficulty_level,
+            'submitted_by' => $request->submitted_by,
+            'user_id' => Auth::id(),
+        ]);
 
         // Redirect back to main page
-        return redirect()->route('itineraries.index')
+        return redirect()->route('home')
                          ->with('success', 'Itinerary added successfully!');
     }
 
@@ -80,16 +90,17 @@ class ItineraryController extends Controller
         // Update existing record
         $itinerary->update($request->all());
 
-        return redirect()->route('itineraries.index')
+        return redirect()->route('home')
                          ->with('success', 'Itinerary updated successfully!');
     }
 
     // Delete itinerary
-     public function destroy($id)
+     public function destroy(Itinerary $itinerary)
     {
-     $itinerary = Itinerary::findOrFail($id);
         $itinerary->delete();
 
-        return redirect()->route('itineraries.index')->with('success', 'Itinerary deleted successfully!');
+        return redirect()->route('home')
+                        ->with('success', 'Itinerary deleted successfully!');
     }
+
 }

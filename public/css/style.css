@@ -1,5 +1,5 @@
 body {
-  background-color: oklab(70.824% -0.03914 -0.03109);
+  /*background-color: oklab(70.824% -0.03914 -0.03109);*/
   font-family: Arial, sans-serif;
   margin: 20px;
   color: #222;
@@ -8,6 +8,9 @@ body {
 h1, h2, h3 {
   color: lab(8.98% -1.48 1.07);
 }
+/* TEMP: disabling navbar styles for Tailwind migration */
+
+/*
 
 a {
   color: #0044cc;
@@ -26,7 +29,7 @@ nav a {
   margin-right: 15px;
   font-weight: bold;
 }
-
+*/
 .container {
   background-color: #e0ffe0;
   padding: 20px;
@@ -115,6 +118,7 @@ nav a {
 }
 
 /* Navbar Styling */
+/*
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -162,6 +166,7 @@ nav a {
 .nav-search button:hover {
     background: #45a049;
 }
+*/
 /* Cards Layout */
 .card-container {
     display: grid;
@@ -406,4 +411,78 @@ nav a {
 
 .search-feedback strong {
     color: hsl(120, 56%, 4%);
+}
+
+/* ----------- REVIEWS SECTION ----------- */
+
+.section-divider {
+    margin: 35px 0;
+    border: none;
+    border-top: 1px solid rgba(0,0,0,0.2);
+}
+
+.section-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #003300;
+}
+
+/* Review Card */
+.review-card {
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 20px;
+    border-left: 4px solid #1d6a1d;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+}
+
+.review-user {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.review-date {
+    color: #555;
+    font-size: 13px;
+}
+
+.review-rating {
+    font-weight: bold;
+    color: #145514;
+    margin: 8px 0;
+}
+
+.review-comment {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.small-delete {
+    padding: 6px 12px;
+    font-size: 13px;
+    margin-top: 10px;
+}
+/* Review Form */
+.review-form {
+    background: rgba(255, 255, 255, 0.65);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+}
+
+.review-form label {
+    font-weight: bold;
+    color: #003300;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.review-form select,
+.review-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #888;
 }

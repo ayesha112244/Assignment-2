@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Country;
 
 class Itinerary extends Model
 {
@@ -21,5 +22,21 @@ class Itinerary extends Model
         'suggested_dates',
         'difficulty_level',
         'submitted_by',
+        'user_id',
     ];
+
+    /**
+     * Relationship: One Itinerary has MANY Reviews
+     * This allows $itinerary->reviews to fetch all reviews
+     */
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+
 }
